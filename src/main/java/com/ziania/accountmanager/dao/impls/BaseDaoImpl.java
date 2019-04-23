@@ -1,7 +1,6 @@
 package com.ziania.accountmanager.dao.impls;
 
 import com.ziania.accountmanager.dao.interfaces.IBaseDao;
-import org.apache.commons.collections.MapUtils;
 import org.apache.ibatis.session.SqlSession;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Repository;
