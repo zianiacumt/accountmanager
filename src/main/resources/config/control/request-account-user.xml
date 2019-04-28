@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<control>
+
+    <!-- 注册 -->
+    <request path="/register">
+        <parameter key="userName" toKey="accountUserName" scope="" value="" validate="" desc="用户名"/>
+        <parameter key="passWord" toKey="accountUserPassword" scope="" value="" validate="" desc="密码"/>
+        <parameter key="email" toKey="accountUserEmailAddr" scope="" value="" validate="" desc="邮箱"/>
+        <parameter key="sex" toKey="accountUserSex" scope="" value="" validate="" desc="性别"/>
+        <parameter key="mobilePhone" toKey="accountUserMobilePhone" scope="" value="" validate="" desc="手机"/>
+        <parameter key="familyPhone" toKey="accountUserFamilyPhone" scope="" value="" validate="" desc="固话"/>
+        <parameter key="age" toKey="" scope="accountUserAge" value="" validate="" desc="年龄"/>
+        <parameter key="address" toKey="accountUserFamilyAddr" scope="" value="" validate="" desc="住址"/>
+    </request>
+
+    <!-- 登录 -->
+
+    <!-- 注销 -->
+
+</control>

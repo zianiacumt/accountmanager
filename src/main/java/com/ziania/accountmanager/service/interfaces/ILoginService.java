@@ -17,7 +17,7 @@ public interface ILoginService {
      * @return
      * @throws CommonException
      */
-    Map<String, Object> login(Map<String, Object> params) throws CommonException;
+    Map<String, Object> signIn(Map<String, Object> params) throws CommonException;
 
     /**
      * 注册
@@ -26,5 +26,13 @@ public interface ILoginService {
      * @throws CommonException
      */
     Map<String, Object> register(Map<String, Object> params) throws CommonException;
+
+    /**
+     * 注销
+     * @param params
+     * @return
+     * @throws CommonException
+     */
+    Map<String, Object> signOut(Map<String, Object> params) throws CommonException;
 
 }

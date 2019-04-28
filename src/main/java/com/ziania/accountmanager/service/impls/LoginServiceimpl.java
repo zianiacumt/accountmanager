@@ -1,9 +1,13 @@
 package com.ziania.accountmanager.service.impls;
 
+import com.ziania.accountmanager.constants.Constants;
 import com.ziania.accountmanager.dao.interfaces.ITAccountmangerUserService;
 import com.ziania.accountmanager.domain.TAccountmangerUser;
 import com.ziania.accountmanager.exception.CommonException;
 import com.ziania.accountmanager.service.interfaces.ILoginService;
+import com.ziania.accountmanager.util.IDGenerator;
+import org.apache.commons.collections.MapUtils;
+import org.apache.commons.lang3.StringUtils;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -34,7 +38,7 @@ public class LoginServiceimpl implements ILoginService {
      * @throws CommonException
      */
     @Override
-    public Map<String, Object> login(Map<String, Object> params) throws CommonException {
+    public Map<String, Object> signIn(Map<String, Object> params) throws CommonException {
         return accountmangerUserService.selectByCond(params);
     }
 
@@ -47,11 +51,30 @@ public class LoginServiceimpl implements ILoginService {
      */
     @Override
     public Map<String, Object> register(Map<String, Object> params) throws CommonException {
-        params.put(TAccountmangerUser.ACCOUNT_USER_ID, 1);
-        params.put(TAccountmangerUser.ACCOUNT_USER_NAME, "admin");
-        params.put(TAccountmangerUser.ACCOUNT_USER_AGE, 12);
+        String sex = MapUtils.getString(params, "sex");
+        if (StringUtils.isEmpty(sex)) {
+            params.put(TAccountmangerUser.ACCOUNT_USER_SEX, Constants.SEX_UNKNOW);
+        }
+        params.put(TAccountmangerUser.ACCOUNT_USER_ID, IDGenerator.getUUID());
         params.put(TAccountmangerUser.ACCOUNT_USER_CRTIME, new Date());
+        params.put(TAccountmangerUser.ACCOUNT_USER_LAST_MODFTIME, new Date());
+        params.put(TAccountmangerUser.ACCOUNT_USER_LAST_SIGNINTIME, new Date());
+        params.put(TAccountmangerUser.ACCOUNT_USER_TOTAL_TIMES, Constants.SIGN_IN_TRY_TOTAL_TIMES_3);
+
         return accountmangerUserService.insertSelective(params);
+    }
+
+    /**
+     * 注销
+     *
+     * @param params
+     * @return
+     * @throws CommonException
+     */
+    @Override
+    public Map<String, Object> signOut(Map<String, Object> params) throws CommonException {
+        params.put(TAccountmangerUser.ACCOUNT_USER_LAST_MODFTIME, new Date());
+        return accountmangerUserService.updateByPrimaryKey(params);
     }
 
 }
