@@ -14,7 +14,10 @@
     </request>
 
     <!-- 登录 -->
-
+    <request path="/signIn">
+        <parameter key="userName" toKey="accountUserName" scope="" value="" validate="" desc="用户名"/>
+        <parameter key="passWord" toKey="accountUserPassword" scope="" value="" validate="" desc="密码"/>
+    </request>
     <!-- 注销 -->
 
 </control>

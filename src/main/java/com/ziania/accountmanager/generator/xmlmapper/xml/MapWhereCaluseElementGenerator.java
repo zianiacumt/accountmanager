@@ -30,6 +30,7 @@ public class MapWhereCaluseElementGenerator extends AbstractXmlElementGenerator 
 
             ifElement.addAttribute(new Attribute("test", sb.toString()));
             sb.setLength(0);
+            sb.append(" and ");
             sb.append(MyBatis3FormattingUtilities.getEscapedColumnName(introspectedColumn));
             sb.append(" = ");
             sb.append(MyBatis3FormattingUtilities.getParameterClause(introspectedColumn));

@@ -6,6 +6,7 @@ import com.ziania.accountmanager.domain.TAccountmangerUser;
 import com.ziania.accountmanager.exception.CommonException;
 import com.ziania.accountmanager.service.interfaces.ILoginService;
 import com.ziania.accountmanager.util.IDGenerator;
+import org.apache.commons.collections.CollectionUtils;
 import org.apache.commons.collections.MapUtils;
 import org.apache.commons.lang3.StringUtils;
 import org.slf4j.Logger;
@@ -39,7 +40,13 @@ public class LoginServiceimpl implements ILoginService {
      */
     @Override
     public Map<String, Object> signIn(Map<String, Object> params) throws CommonException {
-        return accountmangerUserService.selectByCond(params);
+        Map<String, Object> result = accountmangerUserService.selectByCond(params);
+        if (MapUtils.isEmpty(result)) {
+            result.put("returnCode", Constants.RETURN_CODE_FAIL);
+        } else {
+            result.put("returnCode", Constants.RETURN_CODE_SUCCESS);
+        }
+        return result;
     }
 
     /**

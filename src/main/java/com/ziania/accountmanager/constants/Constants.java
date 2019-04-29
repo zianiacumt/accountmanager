@@ -12,4 +12,7 @@ public class Constants {
 
     public static final String SIGN_IN_TRY_TOTAL_TIMES_3 = "3";
 
+    public static final String RETURN_CODE_SUCCESS = "0";
+    public static final String RETURN_CODE_FAIL = "-9999";
+
 }

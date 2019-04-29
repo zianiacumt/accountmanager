@@ -1,0 +1,59 @@
+body {
+    margin: 0px 0px;
+    padding: 0px 0px;
+    background-color: #E6E6E6;
+    font-family: "Microsoft YaHei";
+    font-size: 15px;
+}
+
+.t-column-2 {
+
+}
+
+.t-column-4 {
+
+}
+
+div {
+    border: 0px;
+    border-radius: 3px;
+}
+
+ol, ul {
+    list-style-type: none;
+    padding-inline-start: 0px;
+}
+
+ul li {
+    margin: 5px 0;
+}
+
+li lable {
+    font-size: 15px;
+}
+
+li input {
+    width: 100%;
+    line-height: 28px;
+    font-size: 15px;
+    font-family: "Microsoft YaHei";
+    border: 1px solid #5E5E5E;
+    border-radius: 3px;
+}
+
+.btn {
+    display: inline-block;
+    margin-top: 30px;
+    margin-left: 0px;
+    margin-right: 0px;
+    padding: 5px 0px;
+    width: 100%;
+    text-align: center;
+    border: 1px solid #5E5E5E;
+    font-size: 15px;
+    border-radius: 3px;
+}
+
+.btn-small {
+    padding: 2px 0px;
+}
