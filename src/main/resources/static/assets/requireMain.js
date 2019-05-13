@@ -18,7 +18,8 @@ var require = {
         "underscore": "underscore/underscore",
         "layui": "layui/layui.all",
         "ajax": "common/ajax-amd",
-        "Util": "common/Util"
+        "Util": "common/Util",
+        "Page": "page/page"
     },
     shim: {
         "hdb": {exports:"Handlebars"},

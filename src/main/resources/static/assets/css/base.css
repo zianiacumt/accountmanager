@@ -1,59 +1,114 @@
 body {
     margin: 0px 0px;
     padding: 0px 0px;
-    background-color: #E6E6E6;
-    font-family: "Microsoft YaHei";
-    font-size: 15px;
+    font-family: "SimHei";
 }
 
-.t-column-2 {
-
+input {
+    outline: none;
+    height: 28px;
+    line-height: 28px;
+    border: 1px solid #e5e6e7;
+    padding-top: 0px;
+    padding-bottom: 0px;
+    padding-left: 8px;
+    padding-right: 0px;
+    box-shadow: none;
 }
 
-.t-column-4 {
-
+input:focus {
+    border: 1px solid #18a689;
 }
 
-div {
-    border: 0px;
-    border-radius: 3px;
+textarea {
+    outline: none;
+    border: 1px solid #e5e6e7;
+    padding-top: 0px;
+    padding-left: 8px;
+    padding-bottom: 0px ;
+    padding-right: 0px;
+    height: 70px;
+    resize: none;
+    font-family: "SimHei";
+    font-size: 13px;
 }
 
-ol, ul {
+textarea:focus {
+    border: 1px solid #18a689;
+}
+
+ul {
     list-style-type: none;
     padding-inline-start: 0px;
+    margin-top: 0px;
+    margin-bottom: 0px;
 }
 
-ul li {
-    margin: 5px 0;
+.t-columns-group > li {
+    float: left;
+    height: 30px;
+    font-size: 13px;
+    margin-top: 6px;
 }
 
-li lable {
-    font-size: 15px;
+.t-columns-group > li > label {
+    display: block;
+    float: left;
+    height: 30px;
+    line-height: 30px;
+    text-align: right;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space:nowrap;
 }
 
-li input {
+.t-columns-group > li > div {
+    display: block;
+    float: left;
+    margin-left: 6px;
+    text-align: left;
+}
+
+.t-columns-group > li > div input {
     width: 100%;
-    line-height: 28px;
-    font-size: 15px;
-    font-family: "Microsoft YaHei";
-    border: 1px solid #5E5E5E;
-    border-radius: 3px;
 }
 
-.btn {
-    display: inline-block;
-    margin-top: 30px;
-    margin-left: 0px;
-    margin-right: 0px;
-    padding: 5px 0px;
+.t-columns-group > li > div textarea {
     width: 100%;
-    text-align: center;
-    border: 1px solid #5E5E5E;
-    font-size: 15px;
-    border-radius: 3px;
 }
 
-.btn-small {
-    padding: 2px 0px;
+.t-columns-1 .t-columns-group > li {
+    width:100%;
+}
+
+.t-columns-1 .t-columns-group > li > label {
+    width:7.5%;
+}
+
+.t-columns-1 .t-columns-group > li > div {
+    width:90%;
+}
+
+.t-columns-2 .t-columns-group > li {
+    width:50%;
+}
+
+.t-columns-2 .t-columns-group > li > label {
+    width:15%;
+}
+
+.t-columns-2 .t-columns-group > li > div {
+    width:80%;
+}
+
+.t-columns-4 .t-columns-group > li {
+    width:25%;
+}
+
+.t-columns-4 .t-columns-group > li > label {
+    width:30%;
+}
+
+.t-columns-4 .t-columns-group > li > div {
+    width:60%;
 }

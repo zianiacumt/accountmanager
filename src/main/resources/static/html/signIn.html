@@ -3,11 +3,68 @@
     <head>
         <meta http-equiv="content-type" content="text/html; charset=utf-8">
         <title>账号管理系统</title>
-        <link rel="stylesheet" type="text/css" href="../assets/css/base.css">
         <link rel="shortcut icon" href="../images/icon.ico">
+        <link rel="stylesheet" type="text/css" href="../assets/css/base.css">
+        <link rel="stylesheet" type="text/css" href="../assets/lib/easyui/themes/default/easyui.css">
+        <link rel="stylesheet" type="text/css" href="../assets/lib/easyui/themes/icon.css">
+        <script type="text/javascript" src="../assets/lib/easyui/jquery.min.js"></script>
+        <script type="text/javascript" src="../assets/lib/easyui/jquery.easyui.min.js"></script>
+        <script type="text/javascript" src="../assets/lib/underscore/underscore.js"></script>
+        <script>
+            function signIn() {
+                $('#signinForm').form('submit', {
+                    url: "../signIn",
+                    onSubmit: function(){
+                        if (_.isEmpty($("#userName").val())) {
+                            $.messager.show({
+                                title:"提示",
+                                msg:"用户名不能为空",
+                                timeout:1000,
+                                showType:"fade"
+                            });
+                            return false;
+                        }else if (_.isEmpty($("#passWord").val())) {
+                            $.messager.show({
+                                title:"提示",
+                                msg:"密码不能为空",
+                                timeout:1000,
+                                showType:"fade"
+                            });
+                            return false;
+                        }
+                    },
+                    success:function(data){
+                        alert(data);
+                    }
+                });
+            }
+        </script>
     </head>
     <body>
-        <script src="../assets/requireMain.js"></script>
-        <script src="../assets/lib/requirejs/requirejs.min.js" data-main="../../js/signIn"></script>
+        <div class="signIn">
+            <h2>欢迎登录账号管理系统</h2>
+            <div style="margin: 40px 10%;text-align: left">
+                <form id="signinForm" method="post">
+                    <input id="userName" style="width:100%">
+                    <input id="passWord" style="width:100%">
+                    <a class="button-blue" id="sigInBtn" onclick="signIn();">登 录</a>
+                </form>
+            </div>
+        </div>
+        <script>
+            $("#userName").textbox({
+                iconCls: "icon-man",
+                iconAlign: "right",
+                label: "用户名:",
+                labelPosition: "top",
+                prompt: "请输入用户名"
+            });
+            $("#passWord").passwordbox({
+                label: "密码:",
+                labelPosition: "top",
+                prompt: "请输入密码"
+            });
+
+        </script>
     </body>
 </html>
