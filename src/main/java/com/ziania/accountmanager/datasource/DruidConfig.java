@@ -9,6 +9,7 @@ import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Value;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
+import org.springframework.core.io.InputStreamResource;
 import org.springframework.core.io.Resource;
 import org.springframework.core.io.support.PathMatchingResourcePatternResolver;
 import org.springframework.jdbc.datasource.DataSourceTransactionManager;
@@ -89,8 +90,10 @@ public class DruidConfig {
     @Bean(name="sqlSession")
     public SqlSession sqlSessionFactory() throws Exception {
         SqlSessionFactoryBean sqlSessionFactory = new SqlSessionFactoryBean();
-        Resource[] resources = new PathMatchingResourcePatternResolver().getResources("classpath:mapper/*.xml");
-        sqlSessionFactory.setMapperLocations(resources);
+        Resource configResources = new InputStreamResource(ClassLoader.getSystemResourceAsStream("config/mybatis-configuration.xml"));
+        Resource[] mapperResources = new PathMatchingResourcePatternResolver().getResources("classpath:mapper/*.xml");
+        sqlSessionFactory.setConfigLocation(configResources);
+        sqlSessionFactory.setMapperLocations(mapperResources);
         sqlSessionFactory.setDataSource(druidDataSource());
         return sqlSessionFactory.getObject().openSession();
     }

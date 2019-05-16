@@ -8,6 +8,9 @@ require(['Page','hdbHelper'], function(Page, hdb) {
             "database.database_port":{
                 required: true
             },
+            "database.database_type":{
+                required: true
+            },
             "database.userName":{
                 required: true
             },
@@ -37,6 +40,15 @@ require(['Page','hdbHelper'], function(Page, hdb) {
                     }
                 },
                 {
+                    component:"select",
+                    key: "database_type",
+                    options:{
+                        label: "数据库类型",
+                        url:"/quryCode?codeTypeCd=COMMON_CODE@SEX",
+                        name:"sex"
+                    }
+                },
+                {
                     component:"input",
                     key: "userName",
                     options:{
@@ -51,7 +63,7 @@ require(['Page','hdbHelper'], function(Page, hdb) {
                     }
                 }
             ],
-            databasermk:[
+            databaseremark:[
                 {
                     component:"textarea",
                     key: "remark",

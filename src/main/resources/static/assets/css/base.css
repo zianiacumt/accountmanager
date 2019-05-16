@@ -62,6 +62,16 @@ ul {
     white-space:nowrap;
 }
 
+.t-columns-4 > ul {
+    display:block;
+    float: none;
+}
+
+.t-columns-2 > ul {
+    display:block;
+    float: none;
+}
+
 .t-columns-group > li > div {
     display: block;
     float: left;
@@ -74,6 +84,10 @@ ul {
 }
 
 .t-columns-group > li > div textarea {
+    width: 100%;
+}
+
+.t-columns-group > li > div select {
     width: 100%;
 }
 
@@ -111,4 +125,8 @@ ul {
 
 .t-columns-4 .t-columns-group > li > div {
     width:60%;
+}
+
+.sn-select .sn-select-analog a:active {
+    border: 1px solid #18a689;
 }

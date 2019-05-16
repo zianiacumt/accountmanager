@@ -19,7 +19,9 @@ var require = {
         "layui": "layui/layui.all",
         "ajax": "common/ajax-amd",
         "Util": "common/Util",
-        "Page": "page/page"
+        "Page": "page/page",
+        "select": "select/select",
+        "eventTarget": "common/eventTarget"
     },
     shim: {
         "hdb": {exports:"Handlebars"},

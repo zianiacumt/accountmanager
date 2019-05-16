@@ -3,4 +3,6 @@
 
     <include file="config/control/request-account-user.xml"/>
 
+    <include file="config/control/request-account-commoncode.xml"/>
+
 </control>

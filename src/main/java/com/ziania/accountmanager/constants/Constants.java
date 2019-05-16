@@ -15,4 +15,7 @@ public class Constants {
     public static final String RETURN_CODE_SUCCESS = "0";
     public static final String RETURN_CODE_FAIL = "-9999";
 
+    public static final String VALID_FLAG_YES = "1";
+    public static final String VALID_FLAG_NO = "0";
+
 }

@@ -36,7 +36,8 @@
         </javaClientGenerator>
 
         <!-- 目标表 -->
-        <table tableName="t_accountmanger_user"></table>
+        <!--<table tableName="t_accountmanger_user"></table>-->
+        <table tableName="t_accountmanger_code"></table>
 
     </context>
 

@@ -6,7 +6,7 @@
     </div>
     <div class="t-columns-1">
         <ul class="t-columns-group">
-            {{{databasermk}}}
+            {{{databaseremark}}}
         </ul>
     </div>
 <form>

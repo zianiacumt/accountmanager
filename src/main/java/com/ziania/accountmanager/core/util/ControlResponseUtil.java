@@ -10,7 +10,7 @@ public class ControlResponseUtil {
 
     public static void response(HttpServletResponse response, Map<String,Object> result) {
         try {
-            response.setContentType("text/json charset=utf-8");
+            response.setContentType("application/json charset=utf-8");
             String str = JSONUtils.toJSONString(result);
             response.getWriter().print(str);
         } catch (IOException e) {
