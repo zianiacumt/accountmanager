@@ -32,7 +32,7 @@ public class CommonControl {
     private ICommonCodeService commonCodeService;
 
     /**
-     * 查询下拉选信息
+     * 查询码值
      * @param request
      * @param response
      */
@@ -42,6 +42,72 @@ public class CommonControl {
         Map<String, Object> codeResult = new HashMap<>();
         try {
             codeResult = commonCodeService.quryCode(params);
+            codeResult.put("returnCode", Constants.RETURN_CODE_SUCCESS);
+        } catch (CommonException exp){
+            logger.error(exp.getMessage(), exp);
+            codeResult.put("returnCode", Constants.RETURN_CODE_FAIL);
+            throw new CommonException(exp.getMessage());
+        } finally {
+            ControlResponseUtil.response(response, codeResult);
+        }
+    }
+
+    /**
+     * 新增码值
+     * @param request
+     * @param response
+     * @throws CommonException
+     */
+    @RequestMapping("/addCode")
+    public void addCode(HttpServletRequest request, HttpServletResponse response) throws CommonException {
+        Map<String, Object> params = ControlRequestUtil.createReqParams(request);
+        Map<String, Object> codeResult = new HashMap<>();
+        try {
+            codeResult = commonCodeService.addCode(params);
+            codeResult.put("returnCode", Constants.RETURN_CODE_SUCCESS);
+        } catch (CommonException exp){
+            logger.error(exp.getMessage(), exp);
+            codeResult.put("returnCode", Constants.RETURN_CODE_FAIL);
+            throw new CommonException(exp.getMessage());
+        } finally {
+            ControlResponseUtil.response(response, codeResult);
+        }
+    }
+
+    /**
+     * 修改码值
+     * @param request
+     * @param response
+     * @throws CommonException
+     */
+    @RequestMapping("/modifyCode")
+    public void modifyCode(HttpServletRequest request, HttpServletResponse response) throws CommonException {
+        Map<String, Object> params = ControlRequestUtil.createReqParams(request);
+        Map<String, Object> codeResult = new HashMap<>();
+        try {
+            codeResult = commonCodeService.modifyCode(params);
+            codeResult.put("returnCode", Constants.RETURN_CODE_SUCCESS);
+        } catch (CommonException exp){
+            logger.error(exp.getMessage(), exp);
+            codeResult.put("returnCode", Constants.RETURN_CODE_FAIL);
+            throw new CommonException(exp.getMessage());
+        } finally {
+            ControlResponseUtil.response(response, codeResult);
+        }
+    }
+
+    /**
+     * 删除码值
+     * @param request
+     * @param response
+     * @throws CommonException
+     */
+    @RequestMapping("/deleteCode")
+    public void deleteCode(HttpServletRequest request, HttpServletResponse response) throws CommonException {
+        Map<String, Object> params = ControlRequestUtil.createReqParams(request);
+        Map<String, Object> codeResult = new HashMap<>();
+        try {
+            codeResult = commonCodeService.deleteCode(params);
             codeResult.put("returnCode", Constants.RETURN_CODE_SUCCESS);
         } catch (CommonException exp){
             logger.error(exp.getMessage(), exp);

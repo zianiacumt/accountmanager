@@ -1,27 +1,34 @@
-require(['Page','hdbHelper'], function(Page, hdb) {
+require(['Page','hdbHelper', "jquery", 'Util'], function(Page, hdb, $, Util) {
 
     function getValidateConfig() {
         var validateConfig = {
             "database.database_version":{
-                required: true
+                required: true,
+                msg: "请填写数据库版本信息"
             },
             "database.database_type":{
-                required: true
+                required: true,
+                msg: "请选择数据库类型信息"
             },
             "database.database_ip":{
-                required: true
+                required: true,
+                msg: "请填写数据库ip信息"
             },
             "database.database_port":{
-                required: true
-            },
-            "database.database_type":{
-                required: true
+                required: true,
+                msg: "请填写数据库端口信息"
             },
             "database.database_username":{
-                required: true
+                required: true,
+                msg: "请填写数据库用户名信息"
             },
             "database.database_password":{
-                required: true
+                required: true,
+                msg: "请填写数据库密码信息"
+            },
+            "databaseremark.remark": {
+                required: true,
+                msg: "请填写备注信息"
             }
         }
         return validateConfig
@@ -90,8 +97,26 @@ require(['Page','hdbHelper'], function(Page, hdb) {
         el:$("#main"),
         validation: getValidateConfig(),
         components: getComponents(),
-        tpl:"text!../../tpl/databaseinfo.tpl"
+        tpl:"text!../../tpl/databaseinfo.tpl",
+        events: {
+            "click #submit": "submit"
+        },
+        eventsHandle: {
+            "submit": _.bind(submit, this)
+        }
     }
-    var page = new Page(pageConfig);
+    this.page = new Page(pageConfig);
+
+    function submit() {
+        var param = $.serialize("baseForm");
+        console.log(form);
+        var url = "addCode";
+
+        Util.ajax.postJson(url, param, function(data) {
+
+        }, this, function(data) {
+
+        });
+    }
 
 });

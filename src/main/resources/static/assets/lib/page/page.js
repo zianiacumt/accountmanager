@@ -409,6 +409,79 @@ define(['backbone','underscore',"hdbHelper", "page/page.tpl"], function(Backbone
             });
             return templateHTML;
         },
+        //获取组件
+        getComponent: function() {
+
+        },
+
+        //是否有某个组件
+        hasComponent: function() {
+
+        },
+
+        //获取值
+        val: function(key) {
+            if (_.isString(key)) {
+                console.log("key must be string");
+                throw new Error("key must be string");
+            }
+            var args = Array.prototype.slice.call(arguments, 1);
+            if (_.isArray(args) && args.length > 0) {
+                return this._setValue.apply(this, arguments);
+            } else {
+                return this._getValue.apply(this, arguments);
+            }
+        },
+
+        _setValue: function(key) {
+            if (_.isEmpty(key)) {
+                console.log("key must not be empty");
+                throw new Error("key must not be empty");
+            }
+            var agrs = Array.prototype.slice.call(arguments, 1);
+            if (_.has(this._items, key)) {
+
+            } else {
+                return this._jqVal(key, agrs);
+            }
+        },
+
+        _getValue: function() {
+
+        },
+
+        _jqVal: function() {
+
+        },
+
+        //验证参数
+        doValidate: function() {
+            var _this = this;
+            var validate = true;
+            if (!_.isEmpty(_this.validation) && _.isObject(_this.validation)) {
+                var errorMeaasge = "";
+                _.each(_this.validation, function(value, key) {
+                    var eleKey = key.split(".")[1];
+                    var $ele = $("[name=" + eleKey + "]");
+                    if (_.isObject(value) && _.has(value, "required") && value.required == true) {//需要检验
+                        if (_.isEmpty(_this.val(eleKey))) {//获取值
+                            errorMeaasge +=  value.msg + "。<br/>";
+                            if (_.isEqual(_this.validateType[eleKey], COMPONENT_INPUT) || _.isEqual(_this.validateType[eleKey], COMPONENT_TEXTAREA)) {
+                                $ele.addClass("validate-error");
+                            } else if (_.isEqual(_this.validateType[eleKey], COMPONENT_SELECT)) {
+                                $ele.parent().find(".sn-select-analog").addClass("validate-error");
+                            }
+                            _.delay(function() {
+                                $(".validate-error").removeClass("validate-error");
+                            }, 3000);
+                            validate = false;
+                        }
+                    }
+                });
+                alert(errorMeaasge);
+            }
+            return validate;
+        }
 
     });
 

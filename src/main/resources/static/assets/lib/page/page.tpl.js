@@ -21,7 +21,7 @@ define(['hdb', 'hdbHelper'], function(Handlebars) {
 
         return "<li component=\""
             + alias2(alias1(((stack1 = (depth0 != null ? depth0.options : depth0)) != null ? stack1.name : stack1), depth0))
-            + "\""
+            + "\" style='height: 70px; line-height: 70px'"
             + ((stack1 = helpers["if"].call(alias3,((stack1 = (depth0 != null ? depth0.options : depth0)) != null ? stack1.liClassName : stack1),{"name":"if","hash":{},"fn":container.program(4, data, 0),"inverse":container.noop,"data":data})) != null ? stack1 : "")
             + "><label for=\""
             + alias2(alias1(((stack1 = (depth0 != null ? depth0.options : depth0)) != null ? stack1.name : stack1), depth0))

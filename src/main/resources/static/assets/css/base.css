@@ -27,7 +27,7 @@ textarea {
     /*padding-left: 8px;*/
     padding-bottom: 0px ;
     padding-right: 0px;
-    height: 70px;
+    height: 68px;
     resize: none;
     font-family: "SimHei";
     font-size: 13px;
@@ -37,11 +37,47 @@ textarea:focus {
     border: 1px solid #18a689;
 }
 
+.sn-select .sn-select-analog a:active {
+    border: 1px solid #18a689;
+}
+
 ul {
     list-style-type: none;
     padding-inline-start: 0px;
     margin-top: 0px;
     margin-bottom: 0px;
+}
+
+.tab-panel-title {
+    height: 30px;
+    line-height: 30px;
+    display: block;
+    border: 1px solid #18a689;
+    margin-top: 5px;
+    margin-left: 5px;
+    margin-right: 5px;
+    padding-left: 8px;
+    font-size: 13px;
+}
+
+.tab-panel-list {
+    border: 1px solid #18a689;
+    margin-left: 5px;
+    margin-right: 5px;
+    margin-bottom: 5px;
+}
+
+.t-columns-group {
+    margin-bottom: 5px;
+}
+
+.t-columns-group:after, .t-columns-group:before {
+    display: block;
+    content: "";
+    clear: both;
+    overflow: hidden;
+    height: 0px;
+    font-size: 0px;
 }
 
 .t-columns-group > li {
@@ -60,16 +96,6 @@ ul {
     overflow: hidden;
     text-overflow: ellipsis;
     white-space:nowrap;
-}
-
-.t-columns-4 > ul {
-    display:block;
-    float: none;
-}
-
-.t-columns-2 > ul {
-    display:block;
-    float: none;
 }
 
 .t-columns-group > li > div {
@@ -127,6 +153,51 @@ ul {
     width:60%;
 }
 
-.sn-select .sn-select-analog a:active {
+.fn-center {
+    text-align: center;
+}
+
+.btn-normal {
+    display: inline-block;
+    width: 10%;
     border: 1px solid #18a689;
+    padding-left: 10px;
+    padding-right: 10px;
+    padding-top: 6px;
+    padding-bottom: 6px;
+    margin: 0px auto;
+    border-radius: 3px;
+    font-size: 13px;
+}
+
+.btn-normal-green {
+    display: inline-block;
+    width: 10%;
+    border: 1px solid #18a689;
+    background-color: #18a689;
+    padding-left: 10px;
+    padding-right: 10px;
+    padding-top: 6px;
+    padding-bottom: 6px;
+    margin: 0px auto;
+    border-radius: 3px;
+    font-size: 13px;
+}
+
+.btn-normal-red {
+    display: inline-block;
+    width: 10%;
+    border: 1px solid red;
+    background-color: red;
+    padding-left: 10px;
+    padding-right: 10px;
+    padding-top: 6px;
+    padding-bottom: 6px;
+    margin: 0px auto;
+    border-radius: 3px;
+    font-size: 13px;
+}
+
+.validate-error {
+    border: 1px solid red;
 }
