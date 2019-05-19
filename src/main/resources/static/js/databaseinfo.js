@@ -49,7 +49,7 @@ require(['Page','hdbHelper', "jquery", 'Util'], function(Page, hdb, $, Util) {
                     key: "database_type",
                     options:{
                         label: "数据库类型",
-                        url:"/quryCode?codeTypeCd=COMMON_CODE@SEX"
+                        url:"/quryCodeByCodeTypeCd?codeTypeCd=COMMON_CODE@SEX"
                     }
                 },
                 {

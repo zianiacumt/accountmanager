@@ -15,6 +15,15 @@ public interface ICommonCodeService {
     Map<String, Object> quryCode(Map<String, Object> params) throws CommonException;
 
     /**
+     * 根据codeTypeCd查询
+     * 优先从缓存获取,再从数据获取
+     * @param params
+     * @return
+     * @throws CommonException
+     */
+    Map<String, Object> quryCodeByCodeTypeCd(Map<String, Object> params) throws CommonException;
+
+    /**
      * 新增码表配置
      * @param params
      * @return

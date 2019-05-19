@@ -10,7 +10,7 @@ import java.util.Map;
 import org.apache.commons.collections.MapUtils;
 import org.springframework.stereotype.Repository;
 
-@Repository
+@Repository("accountmangerDatabaseServiceImpl")
 public class TAccountmangerDatabaseServiceImpl extends BaseServiceImpl implements ITAccountmangerDatabaseService {
 
     /**

@@ -6,7 +6,7 @@ import com.ziania.accountmanager.service.interfaces.IDatabaseInfoService;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.stereotype.Repository;
+import org.springframework.beans.factory.annotation.Qualifier;
 import org.springframework.stereotype.Service;
 
 import java.util.Map;
@@ -17,6 +17,7 @@ public class DatabaseInfoServiceImpl implements IDatabaseInfoService {
     private static final Logger logger = LoggerFactory.getLogger(DatabaseInfoServiceImpl.class);
 
     @Autowired
+    @Qualifier("accountmangerDatabaseServiceImpl")
     private ITAccountmangerDatabaseService accountmangerDatabaseService;
 
 

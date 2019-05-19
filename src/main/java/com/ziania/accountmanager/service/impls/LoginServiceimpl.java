@@ -12,6 +12,7 @@ import org.apache.commons.lang3.StringUtils;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.beans.factory.annotation.Qualifier;
 import org.springframework.stereotype.Service;
 
 import java.util.Date;
@@ -29,6 +30,7 @@ public class LoginServiceimpl implements ILoginService {
     private static final Logger Logger = LoggerFactory.getLogger(LoginServiceimpl.class);
 
     @Autowired
+    @Qualifier("accountmangerUserServiceImpl")
     protected ITAccountmangerUserService accountmangerUserService;
 
     /**

@@ -9,6 +9,7 @@ import com.ziania.accountmanager.service.interfaces.ICommonCodeService;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.beans.factory.annotation.Qualifier;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
@@ -24,11 +25,12 @@ import java.util.Map;
  */
 
 @RestController
-public class CommonControl {
+public class CommonCodeControl {
 
-    private static final Logger logger = LoggerFactory.getLogger(CommonControl.class);
+    private static final Logger logger = LoggerFactory.getLogger(CommonCodeControl.class);
 
     @Autowired
+    @Qualifier("commonCodeService")
     private ICommonCodeService commonCodeService;
 
     /**
@@ -42,6 +44,29 @@ public class CommonControl {
         Map<String, Object> codeResult = new HashMap<>();
         try {
             codeResult = commonCodeService.quryCode(params);
+            codeResult.put("returnCode", Constants.RETURN_CODE_SUCCESS);
+        } catch (CommonException exp){
+            logger.error(exp.getMessage(), exp);
+            codeResult.put("returnCode", Constants.RETURN_CODE_FAIL);
+            throw new CommonException(exp.getMessage());
+        } finally {
+            ControlResponseUtil.response(response, codeResult);
+        }
+    }
+
+    /**
+     * 根据codeTypeCd获取码值信息
+     * 优先从缓存获取,再从数据库获取
+     * @param request
+     * @param response
+     * @throws CommonException
+     */
+    @RequestMapping("/quryCodeByCodeTypeCd")
+    public void quryCodeByCodeTypeCd(HttpServletRequest request, HttpServletResponse response) throws CommonException {
+        Map<String, Object> params = ControlRequestUtil.createReqParams(request);
+        Map<String, Object> codeResult = new HashMap<>();
+        try {
+            codeResult = commonCodeService.quryCodeByCodeTypeCd(params);
             codeResult.put("returnCode", Constants.RETURN_CODE_SUCCESS);
         } catch (CommonException exp){
             logger.error(exp.getMessage(), exp);
