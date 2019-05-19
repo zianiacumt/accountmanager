@@ -6,7 +6,6 @@ import com.ziania.accountmanager.domain.TAccountmangerUser;
 import com.ziania.accountmanager.exception.CommonException;
 import com.ziania.accountmanager.service.interfaces.ILoginService;
 import com.ziania.accountmanager.util.IDGenerator;
-import org.apache.commons.collections.CollectionUtils;
 import org.apache.commons.collections.MapUtils;
 import org.apache.commons.lang3.StringUtils;
 import org.slf4j.Logger;

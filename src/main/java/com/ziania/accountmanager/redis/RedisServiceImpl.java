@@ -3,7 +3,6 @@ package com.ziania.accountmanager.redis;
 import com.ziania.accountmanager.exception.CommonException;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Qualifier;
-import org.springframework.context.annotation.Configuration;
 import org.springframework.dao.DataAccessException;
 import org.springframework.data.redis.connection.RedisConnection;
 import org.springframework.data.redis.core.RedisCallback;
