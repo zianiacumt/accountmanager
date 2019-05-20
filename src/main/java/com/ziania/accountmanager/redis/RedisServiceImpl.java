@@ -8,9 +8,9 @@ import org.springframework.data.redis.connection.RedisConnection;
 import org.springframework.data.redis.core.RedisCallback;
 import org.springframework.data.redis.core.RedisTemplate;
 import org.springframework.data.redis.serializer.RedisSerializer;
-import org.springframework.stereotype.Service;
+import org.springframework.stereotype.Component;
 
-@Service("redisService")
+@Component("redisService")
 public class RedisServiceImpl implements IRedisService {
 
     @Autowired
