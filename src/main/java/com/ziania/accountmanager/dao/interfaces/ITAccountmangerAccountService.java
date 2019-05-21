@@ -1,7 +1,7 @@
 package com.ziania.accountmanager.dao.interfaces;
 
 import com.ziania.accountmanager.exception.CommonException;
-import java.util.List;
+
 import java.util.Map;
 
 public interface ITAccountmangerAccountService {
