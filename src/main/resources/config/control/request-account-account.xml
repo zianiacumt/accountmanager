@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<control>
+
+    <request path="/addAccountInfo">
+        <parameter key="account_address" toKey="accountAddress" desc="账号地址"/>
+        <parameter key="account_used_type" toKey="" desc="账号用途类型"/>
+        <parameter key="account_name" toKey="accountName" desc="账号名"/>
+        <parameter key="account_password" toKey="accountPassword" desc="账号密码"/>
+        <parameter key="account_start_time" toKey="accountStartime" desc="账号有效开始时间"/>
+        <parameter key="account_end_time" toKey="accountEndtime" desc="账号有效结束时间"/>
+        <parameter key="account_valid_flag" toKey="accountValidFlag" desc="账号有效性"/>
+        <parameter key="account_rmk" toKey="accountRmk" desc="账号备注说明"/>
+    </request>
+
+</control>

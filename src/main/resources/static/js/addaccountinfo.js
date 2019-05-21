@@ -18,7 +18,7 @@ define(['Page','hdbHelper', "jquery", 'Util'], function(Page, hdb, $, Util) {
                     key: "account_used_type",
                     options: {
                         label: "账号用途类型",
-                        url: "quryCodeByCodeTypeCd?codeTypeCd=COMMON_CODE@ACCOUNT_USED_TYPE"
+                        url: "/quryCodeByCodeTypeCd?codeTypeCd=COMMON_CODE@ACCOUNT_USED_TYPE"
                     }
                 },
                 {
@@ -56,7 +56,7 @@ define(['Page','hdbHelper', "jquery", 'Util'], function(Page, hdb, $, Util) {
                         label: "账号是否有效",
                         disabled: true,
                         value: "1",
-                        url: "quryCodeByCodeTypeCd?codeTypeCd=COMMON_CODE@VALID_FLAG"
+                        url: "/quryCodeByCodeTypeCd?codeTypeCd=COMMON_CODE@VALID_FLAG"
                     }
                 }
             ],
