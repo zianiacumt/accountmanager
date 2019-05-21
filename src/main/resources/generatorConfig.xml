@@ -38,7 +38,8 @@
         <!-- 目标表 -->
         <!--<table tableName="t_accountmanger_user"></table>-->
         <!--<table tableName="t_accountmanger_code"></table>-->
-        <table tableName="t_accountmanger_database"></table>
+        <!--<table tableName="t_accountmanger_database"></table>-->
+        <table tableName="t_accountmanger_account"></table>
 
     </context>
 
