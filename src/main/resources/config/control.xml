@@ -5,4 +5,6 @@
 
     <include file="config/control/request-account-commoncode.xml"/>
 
+    <include file="config/control/request-account-account.xml"/>
+
 </control>

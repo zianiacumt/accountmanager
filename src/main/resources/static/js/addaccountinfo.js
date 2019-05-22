@@ -54,7 +54,6 @@ define(['Page','hdbHelper', "jquery", 'Util'], function(Page, hdb, $, Util) {
                     key: "account_valid_flag",
                     options: {
                         label: "账号是否有效",
-                        disabled: true,
                         value: "1",
                         url: "/quryCodeByCodeTypeCd?codeTypeCd=COMMON_CODE@VALID_FLAG"
                     }
@@ -88,7 +87,20 @@ define(['Page','hdbHelper', "jquery", 'Util'], function(Page, hdb, $, Util) {
 
     //提交
     function submit(){
-
+        var params = $("#baseForm").serialize();
+        var url = "../addAccountInfo";
+        Util.ajax.postJson(url, params, function(data) {
+            console.log(data);
+            if (data && data.returnCode == "0") {
+                alert("新增账号信息成功。");
+            } else {
+                var msg = data.returnMsg? data.returnMsg : "新增账号信息失败。";
+                alert(msg);
+            }
+        }, this, function(data) {
+            var msg = data.returnMsg? data.returnMsg : "新增账号信息失败。";
+            alert(msg);
+        });
     }
 
 });

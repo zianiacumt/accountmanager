@@ -43,7 +43,7 @@ public class AccountControl {
         }
     }
 
-    @RequestMapping("addAccountInfo")
+    @RequestMapping("/addAccountInfo")
     public void addAccountInfo(HttpServletRequest request, HttpServletResponse response) throws CommonException {
         Map<String, Object> params = ControlRequestUtil.createReqParams(request);
         Map<String, Object> resultMap = new HashMap<>();
@@ -60,7 +60,7 @@ public class AccountControl {
         }
     }
 
-    @RequestMapping("modifyAccountInfo")
+    @RequestMapping("/modifyAccountInfo")
     public void modifyAccountInfo(HttpServletRequest request, HttpServletResponse response) throws CommonException {
         Map<String, Object> params = ControlRequestUtil.createReqParams(request);
         Map<String, Object> resultMap = new HashMap<>();
@@ -77,7 +77,7 @@ public class AccountControl {
         }
     }
 
-    @RequestMapping("deleteAccountInfo")
+    @RequestMapping("/deleteAccountInfo")
     public void deleteAccountInfo(HttpServletRequest request, HttpServletResponse response) throws CommonException {
         Map<String, Object> params = ControlRequestUtil.createReqParams(request);
         Map<String, Object> resultMap = new HashMap<>();
