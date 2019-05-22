@@ -40,6 +40,7 @@ public class ControlRequestUtil {
                     for (Request temp : requests) {
                         if (StringUtils.equals(path, temp.getPath())) {
                             request = temp;
+                            requestMap.put(path, temp);
                             break;
                         }
                     }

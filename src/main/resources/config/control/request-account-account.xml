@@ -12,4 +12,4 @@
         <parameter key="account_rmk" toKey="accountRmk" desc="账号备注说明"/>
     </request>
 
-</control>account_used_type
+</control>
