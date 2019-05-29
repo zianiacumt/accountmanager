@@ -1,0 +1,8 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<control>
+    <!-- 查询个人菜单 -->
+    <request path="/getSelfMenus">
+        <parameter key="menuOwner" value="cumt" desc="菜单所有人"/>
+        <parameter key="validFlag" value="1" desc="有效标识"/>
+    </request>
+</control>

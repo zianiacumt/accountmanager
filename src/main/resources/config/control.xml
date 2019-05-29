@@ -7,4 +7,6 @@
 
     <include file="config/control/request-account-account.xml"/>
 
+    <include file="config/control/request-account-menu.xml"/>
+
 </control>
