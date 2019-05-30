@@ -2,7 +2,7 @@ define(['jquery', 'underscore'], function($, _) {
 
     var config = {
         type:{
-            post: 'psot',
+            post: 'post',
             get: 'get',
             delete: 'delete',
             put: 'put'
@@ -20,16 +20,26 @@ define(['jquery', 'underscore'], function($, _) {
             async: true,
             sync:true
         },
-        timeout:3000
+        timeout:3000,
+        cache: {
+            cache_yes: true,
+            cache_no: false
+        }
     }
 
     var ajax_send = function(url, type, dataType, async, data, succallback, errcallback) {
+        var cache = config.cache.cache_no;
+        if (_.isEqual(dataType, config.dateType.html)) {
+            cache = config.cache.cache_yes;
+        }
         return $.ajax({
             url: url,
             type: type,
+            data: data,
             dataType: dataType,
             async: async,
             timeout: config.timeout,
+            cache: cache,
             beforeSend: function(xhr) {
                 xhr.overrideMimeType('text/plain; charset=utf-8')
             },

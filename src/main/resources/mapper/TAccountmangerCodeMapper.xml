@@ -115,6 +115,9 @@
     <include refid="Base_Column_List" />
      from t_accountmanger_code
     <include refid="Map_Where_Clause" />
+    <if test="limit != null and limit != ''">
+      limit ${start},${limit}
+    </if>
   </select>
   <delete id="deleteByPrimaryKey" parameterType="java.util.Map">
     <!--
@@ -141,9 +144,6 @@
     -->
     update t_accountmanger_code
     <set>
-      <if test="codeId != null and codeId != ''">
-        CODE_ID = #{codeId,jdbcType=VARCHAR},
-      </if>
       <if test="codeTypeCd != null and codeTypeCd != ''">
         CODE_TYPE_CD = #{codeTypeCd,jdbcType=VARCHAR},
       </if>
@@ -184,7 +184,7 @@
         RMK = #{rmk,jdbcType=VARCHAR},
       </if>
     </set>
-    
+    where CODE_ID = #{codeId,jdbcType=VARCHAR}
   </update>
   <insert id="insertSelective" parameterType="java.util.Map">
     <!--

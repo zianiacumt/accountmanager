@@ -36,6 +36,11 @@ public class SelectByMapWithBLOBsElementGenerator extends AbstractXmlElementGene
         includeWhereCluse.addAttribute(new Attribute("refid", "Map_Where_Clause"));
         answer.addElement(includeWhereCluse);
 
+        XmlElement limitElement = new XmlElement("if");
+        limitElement.addAttribute(new Attribute("test", "limit != null and limit != ''"));
+        limitElement.addElement(new TextElement("limit ${start},${limit}"));
+        answer.addElement(limitElement);
+
         parentElement.addElement(answer);
     }
 

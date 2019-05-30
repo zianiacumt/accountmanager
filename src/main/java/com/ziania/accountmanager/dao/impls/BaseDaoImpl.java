@@ -78,8 +78,7 @@ public class BaseDaoImpl implements IBaseDao {
      */
     @Override
     public int updateByPrimaryKey(String sqlId, Map<String, Object> params) {
-        Object primaryKey = params.get("primaryKey");
-        return sqlSession.update(sqlId, primaryKey);
+        return sqlSession.update(sqlId, params);
     }
 
     /**
@@ -91,8 +90,7 @@ public class BaseDaoImpl implements IBaseDao {
      */
     @Override
     public int deleteByPrimaryKey(String sqlId, Map<String, Object> params) {
-        Object primaryKey = params.get("primaryKey");
-        return sqlSession.delete(sqlId, primaryKey);
+        return sqlSession.delete(sqlId, params);
     }
 
     /**

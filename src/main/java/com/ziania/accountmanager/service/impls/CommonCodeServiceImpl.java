@@ -40,6 +40,12 @@ public class CommonCodeServiceImpl implements ICommonCodeService {
      */
     @Override
     public Map<String, Object> quryCode(Map<String, Object> params) throws CommonException {
+        String page = MapUtils.getString(params, "page");
+        String limit = MapUtils.getString(params, "limit");
+        if (StringUtils.isNotEmpty(page) && StringUtils.isNotEmpty(limit)) {
+            int start = (Integer.valueOf(page) - 1) * 10;
+            params.put("start", start);
+        }
         return accountmangerCodeServiceImpl.selectByCond(params);
     }
 
@@ -123,7 +129,7 @@ public class CommonCodeServiceImpl implements ICommonCodeService {
      */
     @Override
     public Map<String, Object> modifyCode(Map<String, Object> params) throws CommonException {
-        return null;
+        return accountmangerCodeServiceImpl.updateByPrimaryKey(params);
     }
 
 }

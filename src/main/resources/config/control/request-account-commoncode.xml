@@ -1,8 +1,14 @@
 <?xml version="1.0" encoding="UTF-8" ?>
 <control>
 
-    <!-- 注册 -->
+    <!-- 根据code_type_cd 查询 -->
     <request path="/quryCodeByCodeTypeCd">
+        <parameter key="codeTypeCd" desc="码值类型"/>
+        <parameter key="validFlag" value="1" desc="有效性标识"/>
+    </request>
+
+    <!-- 根据条件查询 -->
+    <request path="/quryCode">
         <parameter key="codeId" desc="主键"/>
         <parameter key="codeTypeCd" desc="码值类型"/>
         <parameter key="codeTypeName" desc="码值类型名称"/>
@@ -12,7 +18,62 @@
         <parameter key="superBizCode" desc="父级编码"/>
         <parameter key="bizCode" desc="编码"/>
         <parameter key="argeSeqno" desc="排序值"/>
-        <parameter key="validFlag" value="1" desc="有效性标识"/>
+        <parameter key="validFlag" desc="有效性标识"/>
+        <parameter key="createTime" desc="创建时间"/>
+        <parameter key="modifyTime" desc="修改时间"/>
+        <parameter key="operateStaff" desc="操作人"/>
+        <parameter key="rmk" desc="备注信息"/>
+        <parameter key="page" desc="当前页"/>
+        <parameter key="limit" desc="每页条数"/>
+    </request>
+
+    <!-- 新增码表信息 -->
+    <request path="/addCode">
+        <parameter key="codeTypeCd" desc="码值类型"/>
+        <parameter key="codeTypeName" desc="码值类型名称"/>
+        <parameter key="codeFullName" desc="全称"/>
+        <parameter key="codeName" desc="名称"/>
+        <parameter key="leafNodeFlag" desc="是否叶子标识"/>
+        <parameter key="superBizCode" desc="父级编码"/>
+        <parameter key="bizCode" desc="编码"/>
+        <parameter key="argeSeqno" desc="排序值"/>
+        <parameter key="validFlag" desc="有效性标识"/>
+        <parameter key="createTime" desc="创建时间"/>
+        <parameter key="modifyTime" desc="修改时间"/>
+        <parameter key="operateStaff" desc="操作人"/>
+        <parameter key="rmk" desc="备注信息"/>
+    </request>
+
+    <!-- 根据主键修改 -->
+    <request path="/modifyCode">
+        <parameter key="codeId" desc="主键"/>
+        <parameter key="codeTypeCd" desc="码值类型"/>
+        <parameter key="codeTypeName" desc="码值类型名称"/>
+        <parameter key="codeFullName" desc="全称"/>
+        <parameter key="codeName" desc="名称"/>
+        <parameter key="leafNodeFlag" desc="是否叶子标识"/>
+        <parameter key="superBizCode" desc="父级编码"/>
+        <parameter key="bizCode" desc="编码"/>
+        <parameter key="argeSeqno" desc="排序值"/>
+        <parameter key="validFlag" desc="有效性标识"/>
+        <parameter key="createTime" desc="创建时间"/>
+        <parameter key="modifyTime" desc="修改时间"/>
+        <parameter key="operateStaff" desc="操作人"/>
+        <parameter key="rmk" desc="备注信息"/>
+    </request>
+
+    <!-- 根据条件删除 -->
+    <request path="/deleteCode">
+        <parameter key="codeId" desc="主键"/>
+        <parameter key="codeTypeCd" desc="码值类型"/>
+        <parameter key="codeTypeName" desc="码值类型名称"/>
+        <parameter key="codeFullName" desc="全称"/>
+        <parameter key="codeName" desc="名称"/>
+        <parameter key="leafNodeFlag" desc="是否叶子标识"/>
+        <parameter key="superBizCode" desc="父级编码"/>
+        <parameter key="bizCode" desc="编码"/>
+        <parameter key="argeSeqno" desc="排序值"/>
+        <parameter key="validFlag" desc="有效性标识"/>
         <parameter key="createTime" desc="创建时间"/>
         <parameter key="modifyTime" desc="修改时间"/>
         <parameter key="operateStaff" desc="操作人"/>

@@ -19,7 +19,8 @@ var require = {
         'util': 'common/util',
         'ajax': 'common/ajax',
         'layui': 'layui/layui',
-        'dialog': 'common/dialog'
+        'dialog': 'common/dialog',
+        'default': 'common/default'
     },
     waitSeconds: 0,
     shim: {
