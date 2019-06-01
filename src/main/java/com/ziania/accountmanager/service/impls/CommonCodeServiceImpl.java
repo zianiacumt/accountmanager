@@ -132,4 +132,22 @@ public class CommonCodeServiceImpl implements ICommonCodeService {
         return accountmangerCodeServiceImpl.updateByPrimaryKey(params);
     }
 
+    /**
+     * 根据条件模糊查询
+     *
+     * @param params
+     * @return
+     * @throws CommonException
+     */
+    @Override
+    public Map<String, Object> quryCodeByLike(Map<String, Object> params) throws CommonException {
+        String page = MapUtils.getString(params, "page");
+        String limit = MapUtils.getString(params, "limit");
+        if (StringUtils.isNotEmpty(page) && StringUtils.isNotEmpty(limit)) {
+            int start = (Integer.valueOf(page) - 1) * 10;
+            params.put("start", start);
+        }
+        return accountmangerCodeServiceImpl.selectByLike(params);
+    }
+
 }

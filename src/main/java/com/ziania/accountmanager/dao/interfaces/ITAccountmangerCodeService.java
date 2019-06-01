@@ -60,4 +60,21 @@ public interface ITAccountmangerCodeService {
      * @mbg.generated Tue May 14 11:00:16 CST 2019
      */
     Map insertSelective(Map params) throws CommonException;
+
+    /**
+     * 模糊查询总数
+     * @param params
+     * @return
+     * @throws CommonException
+     */
+    Map countByLike(Map params) throws CommonException;
+
+    /**
+     * 根据条件模糊查询
+     * @param params
+     * @return
+     * @throws CommonException
+     */
+    Map selectByLike(Map params) throws CommonException;
+
 }

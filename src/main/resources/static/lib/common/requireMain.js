@@ -20,7 +20,8 @@ var require = {
         'ajax': 'common/ajax',
         'layui': 'layui/layui',
         'dialog': 'common/dialog',
-        'default': 'common/default'
+        'default': 'common/default',
+        'table': 'common/table'
     },
     waitSeconds: 0,
     shim: {

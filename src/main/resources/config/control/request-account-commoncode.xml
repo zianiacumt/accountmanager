@@ -80,4 +80,25 @@
         <parameter key="rmk" desc="备注信息"/>
     </request>
 
+    <!-- 根据条件查询（模糊） -->
+    <request path="/quryCodeByLike">
+        <parameter key="codeTypeCd" desc="码值类型"/>
+        <parameter key="codeTypeName" desc="码值类型名称"/>
+        <parameter key="codeFullName" desc="全称"/>
+        <parameter key="codeName" desc="名称"/>
+        <parameter key="leafNodeFlag" desc="是否叶子标识"/>
+        <parameter key="superBizCode" desc="父级编码"/>
+        <parameter key="bizCode" desc="编码"/>
+        <parameter key="argeSeqno" desc="排序值"/>
+        <parameter key="validFlag" desc="有效性标识"/>
+        <parameter key="createStartTime" desc="创建开始时间"/>
+        <parameter key="createEndTime" desc="创建结束时间"/>
+        <parameter key="modifyStartTime" desc="修改结束时间"/>
+        <parameter key="modifyEndTime" desc="修改结束时间"/>
+        <parameter key="operateStaff" desc="操作人"/>
+        <parameter key="rmk" desc="备注信息"/>
+        <parameter key="page" desc="当前页"/>
+        <parameter key="limit" desc="每页条数"/>
+    </request>
+
 </control>

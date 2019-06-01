@@ -47,4 +47,12 @@ public interface ICommonCodeService {
      */
     Map<String, Object> modifyCode(Map<String, Object> params) throws CommonException;
 
+    /**
+     * 根据条件模糊查询
+     * @param params
+     * @return
+     * @throws CommonException
+     */
+    Map<String, Object> quryCodeByLike(Map<String, Object> params) throws CommonException;
+
 }

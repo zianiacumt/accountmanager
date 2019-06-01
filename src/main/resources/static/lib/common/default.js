@@ -2,7 +2,6 @@ define(function() {
 
     var table_config = {
         height: 350,
-        toolbar: true,
         defaultToolbar: ['filter', 'exports', 'print'],
         loading: true,
         even: true,
@@ -19,8 +18,15 @@ define(function() {
         }
     }
 
+    var date_config = {
+        type: 'datetime',
+        format: 'yyyy-MM-dd HH:mm:ss',
+        calendar: true
+    }
+
     return {
-        table_config: table_config
+        table_config: table_config,
+        date_config: date_config
     }
 
 });

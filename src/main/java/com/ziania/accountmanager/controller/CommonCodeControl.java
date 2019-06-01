@@ -143,4 +143,26 @@ public class CommonCodeControl {
         }
     }
 
+    /**
+     * 根据条件模糊查询
+     * @param request
+     * @param response
+     * @throws CommonException
+     */
+    @RequestMapping("/quryCodeByLike")
+    public void quryCodeByLike(HttpServletRequest request, HttpServletResponse response) throws CommonException {
+        Map<String, Object> params = ControlRequestUtil.createReqParams(request);
+        Map<String, Object> codeResult = new HashMap<>();
+        try {
+            codeResult = commonCodeService.quryCodeByLike(params);
+            codeResult.put("returnCode", Constants.RETURN_CODE_SUCCESS);
+        } catch (CommonException exp) {
+            logger.error(exp.getMessage(), exp);
+            codeResult.put("returnCode", Constants.RETURN_CODE_FAIL);
+            throw new CommonException(exp.getMessage());
+        } finally {
+            ControlResponseUtil.response(response, codeResult);
+        }
+    }
+
 }

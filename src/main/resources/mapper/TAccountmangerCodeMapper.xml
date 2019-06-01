@@ -83,6 +83,57 @@
       </if>
     </where>
   </sql>
+
+  <sql id="Map_Where_Like_Clause">
+    <where>
+      <if test="codeTypeCd != null and codeTypeCd != ''">
+        and CODE_TYPE_CD LIKE CONCAT('%', #{codeTypeCd,jdbcType=VARCHAR}, '%')
+      </if>
+      <if test="codeTypeName != null and codeTypeName != ''">
+        and CODE_TYPE_NAME LIKE CONCAT('%', #{codeTypeName,jdbcType=VARCHAR}, '%')
+      </if>
+      <if test="codeFullName != null and codeFullName != ''">
+        and CODE_FULL_NAME LIKE CONCAT('%', #{codeFullName,jdbcType=VARCHAR}, '%')
+      </if>
+      <if test="codeName != null and codeName != ''">
+        and CODE_NAME LIKE CONCAT('%', #{codeName,jdbcType=VARCHAR}, '%')
+      </if>
+      <if test="leafNodeFlag != null and leafNodeFlag != ''">
+        and LEAF_NODE_FLAG CODE_NAME LIKE CONCAT('%', #{leafNodeFlag,jdbcType=VARCHAR}, '%')
+      </if>
+      <if test="superBizCode != null and superBizCode != ''">
+        and SUPER_BIZ_CODE CODE_NAME LIKE CONCAT('%', #{superBizCode,jdbcType=VARCHAR}, '%')
+      </if>
+      <if test="bizCode != null and bizCode != ''">
+        and BIZ_CODE CODE_NAME LIKE CONCAT('%', #{bizCode,jdbcType=VARCHAR}, '%')
+      </if>
+      <if test="argeSeqno != null and argeSeqno != ''">
+        and ARGE_SEQNO CODE_NAME LIKE CONCAT('%', #{argeSeqno,jdbcType=VARCHAR}, '%')
+      </if>
+      <if test="validFlag != null and validFlag != ''">
+        and VALID_FLAG = #{validFlag,jdbcType=VARCHAR}
+      </if>
+      <if test="createStartTime != null and createStartTime !=''">
+        and CREATE_TIME &gt;= #{createStartTime,jdbcType=TIMESTAMP}
+      </if>
+      <if test="createEndTime != null and createEndTime !=''">
+        and CREATE_TIME &lt;= #{createEndTime,jdbcType=TIMESTAMP}
+      </if>
+      <if test="modifyStartTime != null and modifyStartTime !=''">
+        and MODIFY_TIME &gt;= #{modifyStartTime,jdbcType=TIMESTAMP}
+      </if>
+      <if test="modifyEndTime != null and modifyEndTime !=''">
+        and MODIFY_TIME &lt;= #{modifyEndTime,jdbcType=TIMESTAMP}
+      </if>
+      <if test="operateStaff != null and operateStaff != ''">
+        and OPERATE_STAFF LIKE CONCAT('%', #{operateStaff,jdbcType=VARCHAR}, '%')
+      </if>
+      <if test="rmk != null and rmk != ''">
+        and RMK LIKE CONCAT('%', #{rmk,jdbcType=VARCHAR}, '%')
+      </if>
+    </where>
+  </sql>
+
   <select id="countByCond" parameterType="java.util.Map" resultType="java.lang.Integer">
     <!--
       WARNING - @mbg.generated
@@ -92,6 +143,12 @@
     select count(1) from t_accountmanger_code
     <include refid="Map_Where_Clause" />
   </select>
+
+  <select id="countByLikeCond" parameterType="java.util.Map" resultType="java.lang.Integer">
+    select count(1) from t_accountmanger_code
+    <include refid="Map_Where_Like_Clause" />
+  </select>
+
   <select id="selectByPrimaryKey" parameterType="java.util.Map" resultMap="BaseResultMap">
     <!--
       WARNING - @mbg.generated
@@ -119,6 +176,17 @@
       limit ${start},${limit}
     </if>
   </select>
+
+  <select id="selectByLikeCond" parameterType="java.util.Map" resultMap="BaseResultMap">
+    select
+    <include refid="Base_Column_List" />
+    from t_accountmanger_code
+    <include refid="Map_Where_Like_Clause" />
+    <if test="limit != null and limit != ''">
+      limit ${start},${limit}
+    </if>
+  </select>
+
   <delete id="deleteByPrimaryKey" parameterType="java.util.Map">
     <!--
       WARNING - @mbg.generated
