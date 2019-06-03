@@ -93,9 +93,9 @@ require(['layui', 'hdb', 'text!../tpl/commoncode.tpl', 'underscore', 'util', 'jq
                 }
                 layer.confirm('你确定要删除？', function(index){
                     if (index) {
-                        _this.layer.close(index);
+                        layer.close(index);
                         delCommonCode(obj.data);
-                        _this.table.reload('code_table', tableOptions);
+                        table.reload('code_table', tableOptions);
                     }
                 });
             } else if(obj.event === 'edit'){
